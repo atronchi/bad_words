@@ -5,5 +5,5 @@ if [ ! -e $SWEAR_FILE ]; then
     curl $VULGAR_FILE | funzip | iconv -t UTF-8 > $SWEAR_FILE
 fi
 
-crontab <(echo '    * * * * * head -$((${RANDOM} % `wc -l < '$SWEAR_FILE'` + 1)) '$SWEAR_FILE' | tail -1 | say')
+crontab <(echo '    * * * * * head -$(($RANDOM \% `wc -l < '$SWEAR_FILE'` + 1)) '$SWEAR_FILE' | tail -1 | say')
 
